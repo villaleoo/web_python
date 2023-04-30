@@ -1,0 +1,24 @@
+{% extends 'template_root.html' %}
+
+{% block title_head %}
+    <title>Crear articulo</title>
+{% endblock title_head %}
+{% block content %}
+
+  
+  <div> 
+    <h1 style='height:60vh'>CREADOR DE ARTICULOS</h1>
+  </div>
+  <div>
+    
+    <form action={% url 'article:creator_article' %} method="POST">
+      {% csrf_token %}
+      <table>
+        {{form}}
+      </table>
+      <button type="submit">Crear articulo</button>
+    </form>
+  </div>
+
+
+{% endblock content %}

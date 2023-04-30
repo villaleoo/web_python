@@ -1,0 +1,16 @@
+{% extends 'template_root.html' %}
+
+{% block title_head %}
+    <title>{{article_details.titulo}}</title>
+{% endblock title_head %}
+{% block content %}
+ <a href={% url 'article:home' %}>Volver< </a>
+    <div>
+        <p>{{article_details.cat}}<p>
+        <p>{{article_details.likes}}<p>
+        <p>{{article_details.vistas}}<p>
+        <h2>{{article_details.titulo}}</h2>
+        <h4>{{article_details.subtitulo}}</h4>
+        <p>{{article_details.contenido}}</p>
+    </div>
+{% endblock content %}

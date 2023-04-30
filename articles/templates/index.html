@@ -1,0 +1,33 @@
+{% extends 'template_root.html' %}
+
+{% block title_head %}
+    <title>Inicio</title>
+{% endblock title_head %}
+
+
+{% block search_input %} 
+  <form action={% url 'article:home' %}>
+    {{form}}
+    <button type="submit">🔍</button>
+  </form>
+{% endblock search_input %}
+{% block content %}
+
+  <div> 
+    {% if arts %}
+      {% for art in arts  %}
+        <div>
+            <h2>{{art.titulo}}</h2>
+            <h3>{{art.subtitulo}}</h3>
+            <a href={% url 'article:get_article' art.id %}>VER ARTICULO</a>
+            <a href={% url "article:eliminator_article" art.id %}>Eliminar articulo</a>
+            <a href={% url "article:modificator_article" art.id %}>Modificar articulo</a>
+          <div>
+      {% endfor %}
+    {% else %}
+          <h2>No hay articulos cargados</h2>
+    {% endif %}
+  </div>
+
+
+{% endblock content %}

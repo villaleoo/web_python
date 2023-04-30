@@ -1,0 +1,24 @@
+{% extends 'template_root.html' %}
+
+{% block title_head %}
+    <title>Editar articulo</title>
+{% endblock title_head %}
+{% block content %}
+
+  
+  <div> 
+    <h1 style='height:60vh'>CREADOR DE ARTICULOS</h1>
+  </div>
+  <div>
+    <p>{{form.error}}</p>
+    <form action={% url 'article:modificator_article' id %} method="POST">
+      {% csrf_token %}
+      <table>
+        {{form}}
+      </table>
+      <button type="submit">Modificar</button>
+    </form>
+  </div>
+
+
+{% endblock content %}
