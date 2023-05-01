@@ -1,4 +1,8 @@
 {% extends 'template_root.html' %}
+{% load static %}
+{% block styles_head %}
+<link rel="stylesheet" href={% static 'css/style.css' %}>
+{% endblock styles_head %}
 
 {% block title_head %}
     <title>Inicio</title>
@@ -14,9 +18,11 @@
         <div>
             <h2>{{art.titulo}}</h2>
             <h3>{{art.subtitulo}}</h3>
-            <a href={% url 'article:details_article' art.id %}>VER ARTICULO</a>
+            <a class='btn-show-art' href={% url 'article:details_article' art.id %}>VER ARTICULO</a>
+            {% if request.user.is_staff %}
             <a href={% url "article:eliminator_article" art.id %}>Eliminar articulo</a>
             <a href={% url "article:modificator_article" art.id %}>Modificar articulo</a>
+            {% endif %}
           <div>
       {% endfor %}
     {% else %}

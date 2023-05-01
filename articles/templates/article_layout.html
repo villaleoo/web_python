@@ -1,14 +1,15 @@
 {% extends 'template_root.html' %}
-
+{% load static %}
+{% block styles_head %}
+<link rel="stylesheet" href={% static 'css/style.css' %}>
+{% endblock styles_head %}
 {% block title_head %}
     <title>"{{articles.titulo}}"</title>
 {% endblock title_head %}
+
 {% block content %}
  <a href={% url 'article:home' %}>Volver< </a>
     <div>
-        <p>{{articles.cat}}<p>
-        <p>{{articles.likes}}<p>
-        <p>{{articles.vistas}}<p>
         <h2>{{articles.titulo}}</h2>
         <h4>{{articles.subtitulo}}</h4>
         <p>{{articles.contenido}}</p>
