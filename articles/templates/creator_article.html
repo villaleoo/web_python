@@ -14,9 +14,9 @@
     <form action={% url 'article:creator_article' %} method="POST">
       {% csrf_token %}
       <table>
-        {{form}}
+        {{form.as_p}}
       </table>
-      <button type="submit">Crear articulo</button>
+      <button type='submit'>Crear articulo</button>
     </form>
   </div>
 

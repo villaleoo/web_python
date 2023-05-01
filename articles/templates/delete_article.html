@@ -1,0 +1,23 @@
+{% extends 'template_root.html' %}
+
+{% block title_head %}
+    <title>Eliminar articulo</title>
+{% endblock title_head %}
+
+{% block content %}
+
+<div> 
+  </div>
+  <div>
+    <p>{{form.error}}</p>
+    <form action={% url 'article:eliminator_article' articles.id %} method="POST">
+      {% csrf_token %}
+      <p>¿Desea eliminar el articulo "{{articles.titulo}}"?</p>
+      <button type="submit">Eliminar</button>
+    </form>
+    <a href={% url 'article:home' %}>Cancelar</a>
+  </div>
+
+
+
+{% endblock content %}

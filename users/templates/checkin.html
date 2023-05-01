@@ -1,0 +1,17 @@
+{% extends 'template_root.html' %}
+{% block title_head %}
+<title>Registrarse</title>
+{% endblock title_head %}
+
+{% block content %}
+    <div>
+        <form action={% url 'users:checkin' %} method='POST'>
+            {% csrf_token %}
+            <table>
+                {{form}}
+            </table>
+            <button type='submit'>Registrarse</button>
+        </form>
+        <a href={% url 'article:home' %}>Cancelar</a>
+    </div>
+{% endblock content %}

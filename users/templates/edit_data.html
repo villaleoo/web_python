@@ -1,0 +1,19 @@
+{% extends 'template_root.html' %}
+
+{% block title_head %}
+<title>Modificar datos</title>
+{% endblock title_head %}
+
+{% block content %}
+    <div>
+        <form action={% url 'users:edit_data' %} method='POST'>
+            {% csrf_token %}
+            <table>
+                {{form}}
+            </table>
+            <button type='button'><a href={% url 'users:edit_psw' %}>Cambiar contraseña</a></button>
+            <button type='submit'>Guardar cambios</button>
+        </form>
+        <a href={% url 'article:home' %}>Cancelar</a>
+    </div>
+{% endblock content %}

@@ -11,7 +11,7 @@
   </div>
   <div>
     <p>{{form.error}}</p>
-    <form action={% url 'article:modificator_article' id %} method="POST">
+    <form action={% url 'article:modificator_article' articles.id %} method="POST">
       {% csrf_token %}
       <table>
         {{form}}
